@@ -145,6 +145,37 @@
             });
         }
         /*
+        SMS Manual Fire
+        */
+          var rawData = [
+              {
+                "name": "01201829"
+              },
+              {
+                "name": "095179022"
+              },
+              {
+                "name": "09795179022"
+              }
+          ];
+        var this_fail = 0;
+        var this_success = 0;
+        function fireJSON(){
+            $.each(rawData, function(i, item) {
+                var number = item.name;
+                var body = "ဟနီဖာ မ်က္မွန္ မ်က္စိစမ္းသက္ရန္ ဆိုင္အတြင္းသို ့ ၾကြပါ။ဟနီဖာ မ်က္မွန္ဆိုင္ကို အမွတ္ (၂၀၀) ေ႐ႊဘံုသာ (အလယ္) လမ္းသို ့ ေျပာင္းေရႊ႕ဖြင့္လွစ္ထားပါသည္။ ယခုဆိုင္ႏွင့္ မ်က္ေစာင္းထိုးေနရာ။ Ph: 377580. 095018589";
+                var success = function(){
+                    this_success++;
+                    $("#console_log").append(this_success+"|"+item.name+"| Success<br />");
+                };
+                var error = function(e){
+                    this_fail++;
+                    $("#console_log").append(this_fail+"|"+item.name+"| Error"+e+"<br />");
+                };
+                sms.sendSMS(number,body,success,error);
+            });
+        }
+        /*
         File Write
         ****************************************/
         function listSMS(){
@@ -245,6 +276,10 @@
                 <button type='button' class='list-group-item sms-btn' onclick="smsList.length=0;$('#console_log').html('');">
                     <i class='glyphicon glyphicon-erase'></i>
                     Clear SMS Server Realtime Report
+                </button>
+                <button type='button' class='list-group-item sms-btn' onclick="fireJSON();">
+                    <i class='glyphicon glyphicon-erase'></i>
+                    Fire JSON Myat Man Saing
                 </button>
             </div>
             <div class='panel panel-default'>

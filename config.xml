@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.helloworld"
+        id        = "com.miracledigitech.sms_server_template"
         version   = "1.0.0">
 
     <name>Miracle SMS</name>
 
     <description>
-        Miracle Digitech SMS Server
+        Miracle Digitech SMS Server Template
     </description>
 
     <author href="http://miracledigitech.com" email="info@miracledigitech.com">
